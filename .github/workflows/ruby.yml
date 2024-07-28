@@ -35,7 +35,7 @@ jobs:
       with:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-    - name: Run tests
+    - name: build
       run: bundle exec rake
     - name: Version Forget-Me-Not
       # You may pin to the exact commit or the version.
