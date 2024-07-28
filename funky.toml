@@ -1,0 +1,250 @@
+# This section defines the syntax and usage of various programming constructs.
+
+Variable_Assignment = "is"
+
+[example]
+Variable_Assignment = "x is 10"
+
+# Mathematical Operations
+
+[addition]
+description = "sum of [number1] and [number2]"
+example = "sum of 5 and 3"
+result = 8
+
+[subtraction]
+description = "difference between [number1] and [number2]"
+example = "difference between 10 and 7"
+result = 3
+
+[multiplication]
+description = "product of [number1] and [number2]"
+example = "product of 2 and 4"
+result = 8
+
+[division]
+description = "quotient of [number1] and [number2]"
+example = "quotient of 10 and 2"
+result = 5
+
+# Conditional Statements
+
+[conditional]
+description = "Conditional statements using if, elif, and else"
+example = """
+if [condition]:
+    # code to be executed if the condition is true
+elif [condition]:
+    # code to be executed if the previous condition was false and this one is true
+else:
+    # code to be executed if all previous conditions were false
+"""
+
+# Loops
+
+[loops]
+description = "while loop for repetitive tasks"
+example = """
+while [condition]:
+    # code to be executed repeatedly while the condition is true
+"""
+
+# Grammar and Parsing Rules
+
+[grammar]
+program = "statement*"
+statement = "assignment | expression | conditional | loop"
+assignment = "identifier is expression"
+expression = "number | operation"
+operation = """
+    sum of expression and expression |
+    difference between expression and expression |
+    product of expression and expression |
+    quotient of expression and expression
+"""
+conditional = """
+    if condition : statement (elif condition : statement)* (else : statement)?
+"""
+loop = "while condition : statement"
+condition = "expression (< | > | == | !=) expression"
+identifier = "[a-zA-Z_][a-zA-Z0-9_]*"
+number = "[0-9]+"
+
+[example_code]
+code = """
+class FunkyParser
+  def initialize(tokens)
+    @tokens = tokens
+    @current_token = 0
+  end
+
+  def parse
+    program
+  end
+
+  private
+
+  def program
+    statements = []
+    while !eof?
+      statements << statement
+    end
+    statements
+  end
+
+  def statement
+    if match?('identifier') && match?('is')
+      assignment
+    elsif match?('if')
+      conditional
+    elsif match?('while')
+      loop
+    else
+      expression
+    end
+  end
+
+  def assignment
+    identifier = consume('identifier')
+    consume('is')
+    value = expression
+    { assignment: { identifier: identifier, value: value } }
+  end
+
+  def expression
+    if match?('number')
+      consume('number').to_i
+    else
+      operation
+    end
+  end
+
+  def operation
+    case current_token
+    when 'sum'
+      consume('sum')
+      consume('of')
+      operand1 = expression
+      consume('and')
+      operand2 = expression
+      { operation: 'sum', operand1: operand1, operand2: operand2 }
+    # Handle other operation types here
+    else
+      raise_error('Invalid operation')
+    end
+  end
+
+  def conditional
+    conditions = []
+    statements = []
+    consume('if')
+    condition = parse_condition
+    consume(':')
+    statement = statement
+    conditions << condition
+    statements << statement
+
+    while match?('else if')
+      consume('else if')
+      condition = parse_condition
+      consume(':')
+      statement = statement
+      conditions << condition
+      statements << statement
+    end
+
+    if match?('else')
+      consume('else')
+      consume(':')
+      statements << statement
+    end
+
+    { conditional: { conditions: conditions, statements: statements } }
+  end
+
+  def loop
+    consume('while')
+    condition = parse_condition
+    consume(':')
+    statement = statement
+    { loop: { condition: condition, statement: statement } }
+  end
+
+  def parse_condition
+    operand1 = expression
+    operator = consume(['<', '>', '==', '!='])
+    operand2 = expression
+    { operand1: operand1, operator: operator, operand2: operand2 }
+  end
+
+  def consume(expected_token_type)
+    if match?(expected_token_type)
+      token = @tokens[@current_token]
+      @current_token += 1
+      token[:value]
+    else
+      raise_error("Expected #{expected_token_type}")
+    end
+  end
+
+  def match?(expected_token_type)
+    !eof? && @tokens[@current_token][:type] == expected_token_type
+  end
+
+  def current_token
+    @tokens[@current_token][:value]
+  end
+
+  def eof?
+    @current_token >= @tokens.length
+  end
+
+  def raise_error(message)
+    raise "Parse Error: #{message}"
+  end
+end
+"""
+
+[example_tokens]
+tokens1 = """
+[
+  { type: "identifier", value: "x" },
+
+  { type: "is", value: "is" },
+
+  { type: "number", value: "10" }
+
+  # More tokens for the rest of the code
+]
+"""
+tokens2 = """
+[
+  { type: "can", value: "can" },
+
+  { type: "identifier", value: "walk" },
+
+  { type: ":", value: ":" },
+
+  { type: "identifier", value: "print" },
+
+  { type: "(", value: "(" },
+
+  { type: "string", value: "I can walk!" },
+
+  { type: ")", value: ")" },
+
+  { type: "if can't", value: "if can't" },
+
+  { type: "identifier", value: "drive" },
+
+  { type: ":", value: ":" },
+
+  { type: "identifier", value: "print" },
+
+  { type: "(", value: "(" },
+
+  { type: "string", value: "I can't drive!" },
+
+  { type: ")", value: ")" }
+]
+"""
