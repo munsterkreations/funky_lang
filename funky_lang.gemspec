@@ -7,12 +7,13 @@ Gem::Specification.new do |s|
   s.authors     = ['MONSTERCRYST']
   s.email       = ['100237939+monstergenes@users.noreply.github.com']
   s.files       = Dir.glob("{_layouts,_includes,_sass,assets/css/fonts/js/html,*.md, lib/compiler/*.rb, lib/**/*.rb}")
-  
-  # Corrected executables line
-  s.executables = s.files.grep(%r{^bin/}).map { |f| File.basename(f) } + ['funk_lang', 'funky-console']
 
-  # Corrected require_paths line
-  s.require_paths = ["lib/compiler/code_generator", "lib/compiler/FunkyCompiler", "lib/compiler/FunkyLexer", "lib/compiler/SemanticAnalyzer", "lib/compiler/funky_parser", "lib/compiler", "lib/lexer", "lib/parser"]
+  # Ensure that the executables are present in the bin directory
+  s.executables = ['funk_lang', 'funky-console']
+
+  # Ensure the bin files exist
+  s.bindir = 'bin' ["bin/funky_lang", "funky-console"] 
+s.require_paths = ["lib/compiler/code_generator", "lib/compiler/FunkyCompiler", "lib/compiler/FunkyLexer", "lib/compiler/SemanticAnalyzer", "lib/compiler/funky_parser", "lib/compiler", "lib/lexer", "lib/parser"]
 
   s.add_development_dependency "bundler", "~> 2.0"
   s.add_development_dependency "rake", "~> 13.0"
@@ -22,4 +23,5 @@ Gem::Specification.new do |s|
 
   # Specify any additional metadata or custom attributes...
 end
+
 
