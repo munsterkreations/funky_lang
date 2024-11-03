@@ -2,6 +2,8 @@
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'funky_lang.rb'
+require_relative 'code_generator'
+
 
 
 Gem::Specification.new do |s|
