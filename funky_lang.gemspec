@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
                     It includes components such as a lexer, parser, compiler, and semantic analyzer, as well as console tools and binary executables for interacting with Funky code.}
   s.authors     = ['MONSTERCRYST']
   s.email       = ['100237939+monstergenes@users.noreply.github.com']
-  s.files       = Dir.glob("{_layouts,_includes,_sass,assets/css/fonts/js/html,*.md, lib/**/*.rb}" ) 
+  s.files       = Dir.glob("{_layouts,_includes,_sass,assets/css/fonts/js/html,*.md, lib/compiler/*.rb, lib/**/*.rb}" ) 
   s.executables = ['bin/funk_lang', 'bin/funky-console'].end + s.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   s.require_paths = ["lib/compiler/CodeGenerator", "lib/compiler/FunkyCompiler", "lib/compiler/FunkyLexer", "lib/compiler/SemanticAnalyzer", "lib/compiler/funky_parser", "lib/compiler", "lib/lexer", "lib/parser"].end
   s.add_development_dependency = "bundler", "~> 2.0"
