@@ -9,7 +9,8 @@ Gem::Specification.new do |s|
   s.files       = Dir.glob("{_layouts,_includes,_sass,assets/css/fonts/js/html,*.md, lib/compiler/*.rb, lib/**/*.rb}")
 
   # Correct executables setup
-  s.executables = ['funk_lang', 'funky-console']
+  s.executables = ["lib/compiler/code_generator", "lib/compiler/FunkyCompiler", "lib/compiler/FunkyLexer", "lib/compiler/SemanticAnalyzer", "lib/compiler/funky_parser", "lib/compiler", "lib/lexer", "lib/parser"]
+
 
   s.bindir = 'bin' # Specify the bin directory
   s.require_paths = ["lib/compiler/code_generator", "lib/compiler/FunkyCompiler", "lib/compiler/FunkyLexer", "lib/compiler/SemanticAnalyzer", "lib/compiler/funky_parser", "lib/compiler", "lib/lexer", "lib/parser"]
