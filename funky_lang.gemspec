@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.email       = ['100237939+monstergenes@users.noreply.github.com']
   s.files       = Dir.glob("{_layouts,_includes,_sass,assets/css/fonts/js/html,*.md, lib/compiler/*.rb, lib/**/*.rb}" ) 
   s.executables = ['bin/funk_lang', 'bin/funky-console'].end + s.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
-  s.require_paths = ["lib/compiler/CodeGenerator", "lib/compiler/FunkyCompiler", "lib/compiler/FunkyLexer", "lib/compiler/SemanticAnalyzer", "lib/compiler/funky_parser", "lib/compiler", "lib/lexer", "lib/parser"].end
+  s.require_paths = ["lib/compiler/code_generator", "lib/compiler/FunkyCompiler", "lib/compiler/FunkyLexer", "lib/compiler/SemanticAnalyzer", "lib/compiler/funky_parser", "lib/compiler", "lib/lexer", "lib/parser"].end
   s.add_development_dependency = "bundler", "~> 2.0"
   s.add_development_dependency = "rake", "~> 13.0"
   s.add_development_dependency = "jekyll", "~> 4.3.3"
