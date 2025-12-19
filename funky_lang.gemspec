@@ -11,10 +11,9 @@ Gem::Specification.new do |s|
 
   # Correct executables setup
   s.executables = ["funky-console.rb", "funky.toml", "funky_lang.rb"]
-
-
-  s.bindir = ['funky_lang/bin'] # Specify the bin directory
-  s.require_paths = ["lib/compiler/code_generator", "lib/compiler/FunkyCompiler", "lib/compiler/FunkyLexer", "lib/compiler/SemanticAnalyzer", "lib/compiler/funky_parser", "lib/compiler", "lib/lexer", "lib/parser"]
+  s.bindir = 'bin' # Specify the bin directory
+ 
+  s.require_paths = ["lib", "lib/compiler/code_generator", "lib/compiler/FunkyCompiler", "lib/compiler/FunkyLexer", "lib/compiler/SemanticAnalyzer", "lib/compiler/funky_parser", "lib/compiler", "lib/lexer", "lib/parser"]
 
   s.add_development_dependency "bundler", "~> 2.0"
   s.add_development_dependency "rake", "~> 13.0"
@@ -23,6 +22,7 @@ Gem::Specification.new do |s|
   s.metadata["allowed_push_host"] = 'https://github.com/munsterkreations/funky_lang'
   s.metadata['source_code_uri'] = 'https://github.com/munsterkreations/funky_lang'
 end
+
 
 
 
