@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.files       = Dir.glob("{_layouts,_includes,_sass,assets/css/fonts/js/html,*.md, lib/compiler/*.rb, lib/**/*.rb}")
 
   # Correct executables setup
-  s.executables = []
+  s.executables = ["funky-console.rb", "funky.toml", "funky_lang.rb"]
 
 
   s.bindir = ['funky_lang/bin'] # Specify the bin directory
@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
   s.metadata["allowed_push_host"] = 'https://github.com/munsterkreations/funky_lang'
   s.metadata['source_code_uri'] = 'https://github.com/munsterkreations/funky_lang'
 end
+
 
 
 
