@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 # This section defines the syntax and usage of various programming constructs.
 
 Variable_Assignment = "is"
@@ -248,3 +249,4 @@ tokens2 = """
   { type: ")", value: ")" }
 ]
 """
+
