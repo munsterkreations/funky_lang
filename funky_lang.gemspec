@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.description = %q{The Funky gem provides tools for lexing, parsing, compiling, and executing Funky code.
                     It includes components such as a lexer, parser, compiler, and semantic analyzer, as well as console tools and binary executables for interacting with Funky code.}
   s.authors     = ['MONSTERCRYST']
-  s.license     = 'Apache License 2.0'
+  s.license     = 'Apache-2.0'
   s.email       = ['100237939+monstergenes@users.noreply.github.com']
   s.files       = Dir.glob("{_layouts,_includes,_sass,assets/css/fonts/js/html,*.md, lib/compiler/*.rb, lib/**/*.rb}")
 
@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
   s.metadata["allowed_push_host"] = 'https://github.com/munsterkreations/funky_lang'
   s.metadata['source_code_uri'] = 'https://github.com/munsterkreations/funky_lang'
 end
+
 
 
 
