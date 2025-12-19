@@ -8,21 +8,22 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/munsterkreations/funky_lang'
   s.license     = 'Apache-2.0'
   s.email       = ['100237939+monstergenes@users.noreply.github.com']
-  s.files       = Dir.glob("{_layouts,_includes,_sass,assets/css/fonts/js/html,*.md, lib/compiler/*.rb, lib/**/*.rb}")
+  s.files       = Dir.glob(%w[lib/**/*.rb bin/* *.md LICENSE])
 
   # Correct executables setup
-  s.executables = ["funky-console.rb", "funky.toml", "funky_lang.rb"]
+  s.executables = ["funky-console.rb"]
   s.bindir = 'bin' # Specify the bin directory
  
-  s.require_paths = ["lib", "lib/compiler/code_generator", "lib/compiler/FunkyCompiler", "lib/compiler/FunkyLexer", "lib/compiler/SemanticAnalyzer", "lib/compiler/funky_parser", "lib/compiler", "lib/lexer", "lib/parser"]
+  s.require_paths = ["lib"]
 
   s.add_development_dependency "bundler", "~> 2.0"
   s.add_development_dependency "rake", "~> 13.0"
   s.add_development_dependency "jekyll", "~> 4.3.3"
   
-  s.metadata["allowed_push_host"] = 'https://github.com/munsterkreations/funky_lang'
+  s.metadata["allowed_push_host"] = "https://rubygems.org"
   s.metadata['source_code_uri'] = 'https://github.com/munsterkreations/funky_lang'
 end
+
 
 
 
